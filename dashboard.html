@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <h2 class="logo">Bishal Enterprises</h2>
+
+    <nav>
+      <a href="dashboard.html" class="nav-link active">
+        Dashboard
+      </a>
+
+      <a href="inventory.html" class="nav-link">
+        Inventory
+      </a>
+
+      <a href="billing.html" class="nav-link">
+        Billing
+      </a>
+
+      <a href="ledger.html" class="nav-link">
+        Ledger
+      </a>
+    </nav>
+     </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Manage your business efficiently</p>
+      </div>
+
+      <button class="profile-btn">
+        Admin
+      </button>
+    </header>
+
+    <button onclick="logout()" class="logout-btn">
+  Logout
+</button>
+     <!-- Stats Cards -->
+    <section class="cards">
+
+      <div class="card sales-card">
+        <h3>Total Sales</h3>
+        <h2 id="salesCard">Rs 0</h2>
+      </div>
+
+      <div class="card expense-card">
+        <h3>Total Expenses</h3>
+        <h2 id="expenseCard">Rs 0</h2>
+      </div>
+      <div class="card profit-card">
+        <h3>Profit</h3>
+        <h2 id="profit">Rs 0</h2>
+      </div>
+
+      <div class="card inventory-card">
+        <h3>Inventory Items</h3>
+        <h2 id="inventoryCount">0</h2>
+      </div>
+
+    </section>
+
+    <!-- Forms -->
+    <section class="dashboard-grid">
+
+      <!-- Sales -->
+      <div class="panel">
+        <h2>Add Sale</h2>
+
+        <label>Product</label>
+        <select id="saleProduct"></select>
+
+        <label>Quantity</label>
+        <input type="number" id="saleQuantity" placeholder="Quantity">
+
+        <button onclick="addSale()">
+          Add Sale
+        </button>
+
+      </div>
+      <!-- Expense -->
+      <div class="panel">
+
+        <h2>Add Expense</h2>
+
+        <label>Expense Amount</label>
+        <input type="number" id="expenseAmount" placeholder="Amount">
+
+        <button onclick="addExpense()">
+          Add Expense
+        </button>
+        </div>
+
+    </section>
+
+    <!-- Charts -->
+    <section class="chart-grid">
+
+      <div class="chart-card">
+        <h2>Profit & Expense</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h2>Sales Timeline</h2>
+        <canvas id="lineChart"></canvas>
+      </div>
+      </section>
+
+  </main>
+
+</div>
+
+<script type="module" src="app.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="app.js"></script>
+
+    
+</body>
+</html>
