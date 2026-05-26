@@ -1,12 +1,11 @@
-import { auth } from "./firebase.js";
+import { auth } from "./firebase-config.js";
 
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut
-}
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 // SIGNUP
 window.signup = async function () {
@@ -75,7 +74,7 @@ onAuthStateChanged(auth, (user) => {
   if (!user && protectedPages.includes(currentPage)) {
 
     window.location.href =
-      "login.html";
+      "index.html";
 
   }
   });
@@ -86,5 +85,5 @@ window.logout = async function () {
   await signOut(auth);
 
   window.location.href =
-    "login.html";
+    "index.html";
 };

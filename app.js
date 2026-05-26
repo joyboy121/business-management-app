@@ -9,7 +9,7 @@ import {
   getDocs,
   updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { db } from "./firebase.js";
+import { db } from "./firebase-config.js";
 
 const salesRef = collection(db, "sales");
 const expenseRef = collection(db, "expenses");
