@@ -2,107 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Billing System</title>
-
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="billing.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing | Bishal Enterprises</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/billing.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-
 <body>
-
-<div class="layout">
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-
-    <h2 class="logo">Bishal Enterprises</h2>
-
-    <nav>
-      <a href="dashboard.html" class="nav-link">Dashboard</a>
-      <a href="inventory.html" class="nav-link">Inventory</a>
-      <a href="billing.html" class="nav-link active">Billing</a>
-      <a href="ledger.html" class="nav-link">Ledger</a>
-    </nav>
-
-  </aside>
-
-  <!-- Main -->
-  <main class="main-content">
-
-    <header class="topbar">
-      <div>
-        <h1>Billing System</h1>
-        <p>Create and manage invoices</p>
-      </div>
-    </header>
-
-    <button onclick="logout()" class="logout-btn">
-  Logout
-</button>
-
-    <!-- Invoice Creation -->
-    <section class="panel">
-
-      <h2>Create Invoice</h2>
-
-      <label>Customer Name</label>
-      <input type="text" id="customerName">
-
-      <label>Select Product</label>
-      <select id="billProduct"></select>
-
-      <label>Quantity</label>
-      <input type="number" id="billQuantity">
-
-      <button onclick="addToBill()">Add To Bill</button>
-
-    </section>
-    <!-- Invoice History -->
-
-<section class="panel">
-
-  <h2>Invoice History</h2>
-
-  <div id="invoiceHistory"></div>
-
-</section>    
-
-    <!-- Bill Table -->
-    <section class="panel">
-
-      <h2>Invoice Items</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-
-        <tbody id="billTable"></tbody>
-      </table>
-
-      <h2 id="grandTotal">Grand Total: Rs 0</h2>
-
-      <button onclick="saveInvoice()">Save Invoice</button>
-      <button onclick="downloadPDF()">
-  Download PDF
-</button>
-      <button onclick="window.print()">Print Invoice</button>
-
-    </section>
-
-  </main>
-
-</div>
-
-<script type="module" src="billing.js"></script>
-<script type="module" src="auth.js"></script>
-<script type="module" src="app.js"></script>
-
+  <div class="erp-app-shell">
+    <aside class="erp-sidebar"><h2 class="erp-brand">Bishal Enterprises</h2><nav>
+          <a href="dashboard.html" class="erp-nav-link">Dashboard</a>
+          <a href="inventory.html" class="erp-nav-link">Inventory</a>
+          <a href="customers.html" class="erp-nav-link">Customers</a>
+          <a href="suppliers.html" class="erp-nav-link">Suppliers</a>
+          <a href="purchasing.html" class="erp-nav-link">Purchasing</a>
+          <a href="billing.html" class="erp-nav-link is-active">Billing</a>
+          <a href="ledger.html" class="erp-nav-link">Ledger</a>
+          <a href="warehouse.html" class="erp-nav-link">Warehouse</a>
+          <a href="reports.html" class="erp-nav-link">Reports</a>
+          <a href="settings.html" class="erp-nav-link">Settings</a>
+          <a href="search.html" class="erp-nav-link">Global Search</a>
+        </nav></aside>
+    <main class="erp-main">
+      <header class="erp-topbar"><div><h1>Billing</h1><p>Create invoices and manage sales documents.</p></div></header>
+      <button type="button" onclick="logout()" class="erp-button erp-button--danger erp-logout-button" data-auth-action="logout">Logout</button>
+      <section class="billing-workspace">
+        <section class="form-card billing-create-card">
+          <h2>Create Invoice</h2>
+          <div class="form-field"><label for="billCustomer">Customer</label><select id="billCustomer"></select></div>
+          <div class="form-field"><label for="billProduct">Product</label><select id="billProduct"></select></div>
+          <div class="form-field"><label for="billQuantity">Quantity</label><input id="billQuantity" type="number" min="1" step="1" placeholder="1"></div>
+          <button type="button" class="erp-button erp-button--primary" data-action="billing-add-item">Add Item</button>
+        </section>
+        <section class="form-card billing-preview-card">
+          <h2>Invoice Preview</h2><p id="billingPreviewCustomer">Select a customer to begin.</p>
+          <div class="billing-table-wrap"><table class="data-table"><thead><tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th><th></th></tr></thead><tbody id="billTable"></tbody></table></div>
+          <div id="billingDraftEmpty" class="billing-empty-state">Your invoice draft has no items.</div>
+          <p id="billingTaxSummary">Subtotal: Rs 0 · Tax (0%): Rs 0</p><h2 id="grandTotal">Grand Total: Rs 0</h2>
+          <div class="billing-draft-actions"><button type="button" class="erp-button erp-button--primary" data-action="billing-save">Save Invoice</button><button type="button" class="erp-button erp-button--secondary" data-action="billing-download">Download PDF</button></div>
+        </section>
+      </section>
+      <section class="form-card"><div class="billing-history-header"><div><h2>Invoice History</h2><p id="billingInvoiceCount" class="billing-field-note">Loading invoices...</p></div><div class="billing-filters"><input id="billingSearch" type="search" placeholder="Search invoice or customer"><select id="billingStatusFilter"><option value="active">Active invoices</option><option value="all">All invoices</option><option value="voided">Voided invoices</option></select></div></div><div id="invoiceHistory" class="billing-invoice-history"></div></section>
+    </main>
+  </div>
+  <script type="module" src="js/billing.js"></script><script type="module" src="js/auth.js"></script>
 </body>
 </html>

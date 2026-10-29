@@ -1,105 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Ledger System</title>
-
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="layout">
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-
-    <h2 class="logo">Bishal Enterprises</h2>
-
-    <nav>
-      <a href="dashboard.html" class="nav-link">Dashboard</a>
-      <a href="inventory.html" class="nav-link">Inventory</a>
-      <a href="billing.html" class="nav-link">Billing</a>
-      <a href="ledger.html" class="nav-link active">Ledger</a>
-    </nav>
-
-  </aside>
-
-  <!-- Main -->
-  <main class="main-content">
-
-    <header class="topbar">
-      <div>
-        <h1>Ledger System</h1>
-        <p>Track credit and debit transactions</p>
-      </div>
-    </header>
-
-    <button onclick="logout()" class="logout-btn">
-  Logout
-</button>
-
-    <!-- Add Entry -->
-    <section class="panel">
-
-      <h2>Add Entry</h2>
-
-      <label>Customer Name</label>
-      <input type="text" id="ledgerCustomer">
-
-      <label>Type</label>
-      <select id="ledgerType">
-        <option value="credit">Credit</option>
-        <option value="debit">Debit</option>
-      </select>
-
-      <label>Amount</label>
-      <input type="number" id="ledgerAmount">
-
-      <label>Description</label>
-      <input type="text" id="ledgerDescription">
-
-      <button onclick="addLedgerEntry()">Save Entry</button>
-
-    </section>
-
-    <!-- Ledger Table -->
-    <section class="panel">
-
-      <h2>Transactions</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Customer</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-
-        <tbody id="ledgerTable"></tbody>
-      </table>
-
-    </section>
-
-    <!-- Balance Section -->
-    <section class="panel">
-
-      <h2>Customer Balance</h2>
-
-      <div id="balanceList"></div>
-
-    </section>
-
-  </main>
-
-</div>
-
-<script type="module" src="ledger.js"></script>
-<script type="module" src="auth.js"></script>
-<script type="module" src="app.js"></script>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ledger | Bishal Enterprises</title><link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/ledger.css"><link rel="stylesheet" href="css/responsive.css"></head><body><div class="erp-app-shell"><aside class="erp-sidebar"><h2 class="erp-brand">Bishal Enterprises</h2><nav>
+          <a href="dashboard.html" class="erp-nav-link">Dashboard</a>
+          <a href="inventory.html" class="erp-nav-link">Inventory</a>
+          <a href="customers.html" class="erp-nav-link">Customers</a>
+          <a href="suppliers.html" class="erp-nav-link">Suppliers</a>
+          <a href="purchasing.html" class="erp-nav-link">Purchasing</a>
+          <a href="billing.html" class="erp-nav-link">Billing</a>
+          <a href="ledger.html" class="erp-nav-link is-active">Ledger</a>
+          <a href="warehouse.html" class="erp-nav-link">Warehouse</a>
+          <a href="reports.html" class="erp-nav-link">Reports</a>
+          <a href="settings.html" class="erp-nav-link">Settings</a>
+          <a href="search.html" class="erp-nav-link">Global Search</a>
+        </nav></aside><main class="erp-main"><header class="erp-topbar"><div><h1>Ledger</h1><p>Track customer credits, debits, and balances.</p></div></header><button type="button" onclick="logout()" class="erp-button erp-button--danger erp-logout-button" data-auth-action="logout">Logout</button><section class="ledger-workspace"><section class="form-card"><h2>Add Entry</h2><div class="form-field"><label for="ledgerCustomer">Customer</label><select id="ledgerCustomer"></select></div><div class="form-field"><label for="ledgerType">Type</label><select id="ledgerType"><option value="credit">Credit</option><option value="debit">Debit</option></select></div><div class="form-field"><label for="ledgerAmount">Amount</label><input id="ledgerAmount" type="number" min="0.01" step="0.01"></div><div class="form-field"><label for="ledgerDescription">Description</label><input id="ledgerDescription" type="text" placeholder="Payment, adjustment, or note"></div><button type="button" class="erp-button erp-button--primary" data-action="ledger-add">Save Entry</button></section><section class="form-card ledger-summary"><h2>Balances</h2><div id="balanceList" class="ledger-balance-list"></div></section></section><section class="form-card"><div class="ledger-list-header"><div><h2>Transactions</h2><p id="ledgerCount" class="ledger-field-note">Loading transactions...</p></div><div class="ledger-filters"><input id="ledgerSearch" type="search" placeholder="Search customer or description"><select id="ledgerFilter"><option value="all">All types</option><option value="credit">Credit</option><option value="debit">Debit</option></select><button type="button" class="erp-button erp-button--secondary" data-action="ledger-export">Export CSV</button></div></div><div class="ledger-table-wrap"><table class="data-table ledger-table"><thead><tr><th>Date</th><th>Customer</th><th>Type</th><th>Amount</th><th>Running Balance</th><th>Description</th><th>Actions</th></tr></thead><tbody id="ledgerTable"></tbody></table></div><div id="ledgerEmpty" class="ledger-empty-state" hidden></div></section></main></div><script type="module" src="js/ledger.js"></script><script type="module" src="js/auth.js"></script></body></html>

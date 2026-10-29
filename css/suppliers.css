@@ -1,0 +1,127 @@
+/* Suppliers module */
+.suppliers-workspace {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.suppliers-summary-card {
+  align-self: start;
+}
+
+.suppliers-field-note,
+.suppliers-list-header p,
+.suppliers-profile p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.suppliers-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.suppliers-stat-grid div {
+  padding: 16px;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.suppliers-stat-grid span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.suppliers-stat-grid strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.suppliers-list-header,
+.suppliers-profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.suppliers-list-header input {
+  min-width: 260px;
+  min-height: 42px;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.suppliers-table-wrap {
+  overflow-x: auto;
+}
+
+.suppliers-table {
+  min-width: 720px;
+}
+
+.suppliers-table small {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+}
+
+.suppliers-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suppliers-actions .erp-button {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.suppliers-empty-state {
+  padding: 24px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  color: #64748b;
+  text-align: center;
+}
+
+.suppliers-profile h3 {
+  margin: 24px 0 12px;
+}
+
+.suppliers-edit-dialog .form-field {
+  margin-top: 14px;
+}
+
+.suppliers-edit-dialog textarea {
+  min-height: 70px;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+@media (max-width: 720px) {
+  .suppliers-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .suppliers-list-header,
+  .suppliers-profile-header {
+    flex-direction: column;
+  }
+
+  .suppliers-list-header input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .suppliers-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Purchasing | Bishal Enterprises
+    </title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/purchasing.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <div class="erp-app-shell">
+      <aside class="erp-sidebar">
+        <h2 class="erp-brand">
+          Bishal Enterprises
+        </h2>
+        <nav>
+          <a href="dashboard.html" class="erp-nav-link">Dashboard</a>
+          <a href="inventory.html" class="erp-nav-link">Inventory</a>
+          <a href="customers.html" class="erp-nav-link">Customers</a>
+          <a href="suppliers.html" class="erp-nav-link">Suppliers</a>
+          <a href="purchasing.html" class="erp-nav-link is-active">Purchasing</a>
+          <a href="billing.html" class="erp-nav-link">Billing</a>
+          <a href="ledger.html" class="erp-nav-link">Ledger</a>
+          <a href="warehouse.html" class="erp-nav-link">Warehouse</a>
+          <a href="reports.html" class="erp-nav-link">Reports</a>
+          <a href="settings.html" class="erp-nav-link">Settings</a>
+          <a href="search.html" class="erp-nav-link">Global Search</a>
+        </nav>
+      </aside>
+      <main class="erp-main">
+        <header class="erp-topbar">
+          <div>
+            <h1>
+              Purchasing
+            </h1>
+            <p>
+              Create supplier orders and receive stock.
+            </p>
+          </div>
+        </header>
+        <button type="button" onclick="logout()" class="erp-button erp-button--danger erp-logout-button" data-auth-action="logout">
+          Logout
+        </button>
+        <section class="purchasing-workspace">
+          <section class="form-card">
+            <h2>
+              Create Purchase Order
+            </h2>
+            <div class="form-field">
+              <label for="purchaseSupplier">
+                Supplier
+              </label>
+              <select id="purchaseSupplier">
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="purchaseProduct">
+                Product
+              </label>
+              <select id="purchaseProduct">
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="purchaseQuantity">
+                Quantity
+              </label>
+              <input id="purchaseQuantity" type="number" min="1" step="1">
+            </div>
+            <div class="form-field">
+              <label for="purchaseCost">
+                Unit cost
+              </label>
+              <input id="purchaseCost" type="number" min="0.01" step="0.01">
+            </div>
+            <button type="button" class="erp-button erp-button--primary" data-action="purchasing-create">
+              Create Order
+            </button>
+          </section>
+          <section class="form-card purchasing-summary">
+            <h2>
+              Purchase Overview
+            </h2>
+            <div class="purchasing-stat-grid">
+              <div>
+                <span>
+                  Pending
+                </span>
+                <strong id="purchasePendingCount">
+                  0
+                </strong>
+              </div>
+              <div>
+                <span>
+                  Received
+                </span>
+                <strong id="purchaseReceivedCount">
+                  0
+                </strong>
+              </div>
+              <div>
+                <span>
+                  Pending value
+                </span>
+                <strong id="purchasePendingValue">
+                  Rs 0
+                </strong>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="form-card">
+          <div class="purchasing-list-header">
+            <div>
+              <h2>
+                Purchase History
+              </h2>
+              <p id="purchaseOrderCount" class="purchasing-field-note">
+                Loading orders...
+              </p>
+            </div>
+            <div class="purchasing-filters">
+              <input id="purchaseSearch" type="search" placeholder="Search supplier or order" aria-label="Search purchase orders">
+              <select id="purchaseStatusFilter" aria-label="Filter purchase orders by status">
+                <option value="all">
+                  All statuses
+                </option>
+                <option value="pending">
+                  Pending
+                </option>
+                <option value="received">
+                  Received
+                </option>
+                <option value="cancelled">
+                  Cancelled
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="purchasing-table-wrap">
+            <table class="data-table purchasing-table">
+              <thead>
+                <tr>
+                  <th>
+                    Order
+                  </th>
+                  <th>
+                    Supplier
+                  </th>
+                  <th>
+                    Product
+                  </th>
+                  <th>
+                    Qty
+                  </th>
+                  <th>
+                    Cost
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                  <th>
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="purchaseOrderTable">
+              </tbody>
+            </table>
+          </div>
+          <div id="purchaseEmptyState" class="purchasing-empty-state" hidden>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="js/purchasing.js">
+    </script>
+    <script type="module" src="js/auth.js">
+    </script>
+  </body>
+</html>

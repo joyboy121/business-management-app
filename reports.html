@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Reports | Bishal Enterprises
+    </title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/phase6.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
+  </head>
+  <body>
+    <div class="erp-app-shell">
+      <aside class="erp-sidebar">
+        <h2 class="erp-brand">
+          Bishal Enterprises
+        </h2>
+        <nav>
+          <a href="dashboard.html" class="erp-nav-link">Dashboard</a>
+          <a href="inventory.html" class="erp-nav-link">Inventory</a>
+          <a href="customers.html" class="erp-nav-link">Customers</a>
+          <a href="suppliers.html" class="erp-nav-link">Suppliers</a>
+          <a href="purchasing.html" class="erp-nav-link">Purchasing</a>
+          <a href="billing.html" class="erp-nav-link">Billing</a>
+          <a href="ledger.html" class="erp-nav-link">Ledger</a>
+          <a href="warehouse.html" class="erp-nav-link">Warehouse</a>
+          <a href="reports.html" class="erp-nav-link is-active">Reports</a>
+          <a href="settings.html" class="erp-nav-link">Settings</a>
+          <a href="search.html" class="erp-nav-link">Global Search</a>
+        </nav>
+      </aside>
+      <main class="erp-main">
+        <header class="erp-topbar">
+          <div>
+            <h1>
+              Reports
+            </h1>
+            <p>
+              Sales, expenses, invoices, and purchasing for a date range.
+            </p>
+          </div>
+        </header>
+        <button onclick="logout()" class="erp-button erp-button--danger erp-logout-button" data-auth-action="logout">
+          Logout
+        </button>
+        <section class="form-card">
+          <div class="phase-toolbar">
+            <label for="reportFrom">
+              From
+              <input id="reportFrom" type="date">
+            </label>
+            <label for="reportTo">
+              To
+              <input id="reportTo" type="date">
+            </label>
+            <button class="erp-button erp-button--primary" data-action="report-apply">
+              Apply
+            </button>
+            <button class="erp-button erp-button--secondary" data-action="report-export">
+              Export CSV
+            </button>
+            <button class="erp-button erp-button--secondary" data-action="report-excel">
+              Export Excel
+            </button>
+            <button class="erp-button erp-button--secondary" data-action="report-pdf">
+              Export PDF
+            </button>
+          </div>
+          <p id="reportLoadingState" class="phase-status" aria-live="polite">
+            Loading report data…
+          </p>
+          <div class="phase-grid">
+            <div>
+              <h3>
+                Sales
+              </h3>
+              <strong id="reportSales">
+                Rs 0
+              </strong>
+            </div>
+            <div>
+              <h3>
+                Expenses
+              </h3>
+              <strong id="reportExpenses">
+                Rs 0
+              </strong>
+            </div>
+            <div>
+              <h3>
+                Net
+              </h3>
+              <strong id="reportNet">
+                Rs 0
+              </strong>
+            </div>
+            <div>
+              <h3>
+                Purchase orders
+              </h3>
+              <strong id="reportOrders">
+                0
+              </strong>
+            </div>
+          </div>
+          <canvas id="reportChart" height="90">
+          </canvas>
+          <div id="reportEmptyState" class="phase-empty" hidden>
+            No records found for this date range.
+          </div>
+          <div class="phase-table">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>
+                    Type
+                  </th>
+                  <th>
+                    Record
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Amount
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="reportRows">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="js/reports.js">
+    </script>
+    <script type="module" src="js/auth.js">
+    </script>
+  </body>
+</html>

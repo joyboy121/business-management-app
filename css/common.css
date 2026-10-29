@@ -1,0 +1,270 @@
+/* Shared ERP application shell and reusable UI components */
+:root {
+  --erp-color-primary: #2563eb;
+  --erp-color-primary-dark: #1e40af;
+  --erp-color-danger: #dc2626;
+  --erp-color-danger-dark: #b91c1c;
+  --erp-color-surface: #fff;
+  --erp-color-background: #f4f7fb;
+  --erp-color-border: #e5e7eb;
+  --erp-shadow-card: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--erp-color-background);
+  color: #1f2937;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.erp-app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.erp-sidebar {
+  width: 250px;
+  padding: 30px 20px;
+  background: #111827;
+  color: #fff;
+}
+
+.erp-brand {
+  margin-bottom: 40px;
+  font-size: 28px;
+}
+
+.erp-nav-link {
+  display: block;
+  margin-bottom: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.erp-nav-link:hover,
+.erp-nav-link.is-active {
+  background: var(--erp-color-primary);
+}
+
+.erp-main {
+  flex: 1;
+  min-width: 0;
+  padding: 30px;
+}
+
+.erp-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.erp-topbar p {
+  color: #666;
+}
+
+.erp-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 18px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.erp-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.erp-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.erp-button--primary {
+  background: var(--erp-color-primary);
+}
+
+.erp-button--primary:hover {
+  background: var(--erp-color-primary-dark);
+}
+
+.erp-button--secondary {
+  background: #64748b;
+}
+
+.erp-button--secondary:hover {
+  background: #475569;
+}
+
+.erp-button--danger {
+  background: var(--erp-color-danger);
+}
+
+.erp-button--danger:hover {
+  background: var(--erp-color-danger-dark);
+}
+
+.erp-user-button {
+  padding: 12px 20px;
+}
+
+.erp-logout-button {
+  margin-bottom: 20px;
+}
+
+.form-card {
+  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 15px;
+  background: var(--erp-color-surface);
+  box-shadow: var(--erp-shadow-card);
+}
+
+.form-card h2 {
+  margin-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label,
+.form-card > label {
+  margin-top: 15px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select,
+.form-card > input,
+.form-card > select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-card > .erp-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--erp-color-border);
+  text-align: left;
+}
+
+.data-table th {
+  color: #475569;
+  background: #f8fafc;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.data-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.erp-toast-region {
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  width: min(360px, calc(100vw - 40px));
+  gap: 10px;
+}
+
+.erp-toast {
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: var(--erp-shadow-card);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.erp-toast--success {
+  background: #059669;
+}
+
+.erp-toast--error {
+  background: var(--erp-color-danger);
+}
+
+.erp-toast.is-leaving {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.erp-dialog-overlay {
+  position: fixed;
+  z-index: 1100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.erp-dialog {
+  width: min(420px, 100%);
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--erp-color-surface);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.erp-dialog h2 {
+  margin-bottom: 10px;
+}
+
+.erp-dialog p {
+  color: #475569;
+  line-height: 1.5;
+}
+
+.erp-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 18%);
+  border-color: #2563eb;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

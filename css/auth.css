@@ -1,0 +1,36 @@
+/* Authentication module */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.auth-login-card {
+  width: min(350px, calc(100% - 40px));
+  padding: 40px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.auth-login-card h1 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.auth-login-card input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.auth-login-card .erp-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 16px;
+}

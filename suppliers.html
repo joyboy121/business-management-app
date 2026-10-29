@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Suppliers | Bishal Enterprises
+    </title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/suppliers.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <div class="erp-app-shell">
+      <aside class="erp-sidebar">
+        <h2 class="erp-brand">
+          Bishal Enterprises
+        </h2>
+        <nav>
+          <a href="dashboard.html" class="erp-nav-link">Dashboard</a>
+          <a href="inventory.html" class="erp-nav-link">Inventory</a>
+          <a href="customers.html" class="erp-nav-link">Customers</a>
+          <a href="suppliers.html" class="erp-nav-link is-active">Suppliers</a>
+          <a href="purchasing.html" class="erp-nav-link">Purchasing</a>
+          <a href="billing.html" class="erp-nav-link">Billing</a>
+          <a href="ledger.html" class="erp-nav-link">Ledger</a>
+          <a href="warehouse.html" class="erp-nav-link">Warehouse</a>
+          <a href="reports.html" class="erp-nav-link">Reports</a>
+          <a href="settings.html" class="erp-nav-link">Settings</a>
+          <a href="search.html" class="erp-nav-link">Global Search</a>
+        </nav>
+      </aside>
+      <main class="erp-main">
+        <header class="erp-topbar">
+          <div>
+            <h1>
+              Suppliers
+            </h1>
+            <p>
+              Manage supplier contacts and purchasing relationships.
+            </p>
+          </div>
+        </header>
+        <button type="button" onclick="logout()" class="erp-button erp-button--danger erp-logout-button" data-auth-action="logout">
+          Logout
+        </button>
+        <section class="suppliers-workspace">
+          <section class="form-card">
+            <h2>
+              Add Supplier
+            </h2>
+            <div class="form-field">
+              <label for="supplierName">
+                Supplier name
+              </label>
+              <input id="supplierName" type="text" placeholder="Business or supplier name">
+            </div>
+            <div class="form-field">
+              <label for="supplierPhone">
+                Phone
+              </label>
+              <input id="supplierPhone" type="tel" placeholder="Phone number">
+            </div>
+            <div class="form-field">
+              <label for="supplierEmail">
+                Email
+                <span class="suppliers-field-note">
+                  (optional)
+                </span>
+              </label>
+              <input id="supplierEmail" type="email" placeholder="Email address">
+            </div>
+            <div class="form-field">
+              <label for="supplierAddress">
+                Address
+                <span class="suppliers-field-note">
+                  (optional)
+                </span>
+              </label>
+              <textarea id="supplierAddress" rows="2" placeholder="Address">
+              </textarea>
+            </div>
+            <div class="form-field">
+              <label for="supplierNotes">
+                Notes
+                <span class="suppliers-field-note">
+                  (optional)
+                </span>
+              </label>
+              <textarea id="supplierNotes" rows="2" placeholder="Payment terms, contact person, or notes">
+              </textarea>
+            </div>
+            <button type="button" class="erp-button erp-button--primary" data-action="suppliers-add">
+              Add Supplier
+            </button>
+          </section>
+          <section class="form-card suppliers-summary-card">
+            <h2>
+              Supplier Overview
+            </h2>
+            <div class="suppliers-stat-grid">
+              <div>
+                <span>
+                  Suppliers
+                </span>
+                <strong id="suppliersCount">
+                  0
+                </strong>
+              </div>
+              <div>
+                <span>
+                  With email
+                </span>
+                <strong id="suppliersEmailCount">
+                  0
+                </strong>
+              </div>
+              <div>
+                <span>
+                  Purchase orders
+                </span>
+                <strong id="suppliersPurchaseCount">
+                  0
+                </strong>
+              </div>
+            </div>
+            <p class="suppliers-field-note">
+              Purchase totals include all order statuses.
+            </p>
+          </section>
+        </section>
+        <section class="form-card">
+          <div class="suppliers-list-header">
+            <div>
+              <h2>
+                Supplier Directory
+              </h2>
+              <p id="suppliersListCount" class="suppliers-field-note">
+                Loading suppliers...
+              </p>
+            </div>
+            <input id="suppliersSearch" type="search" placeholder="Search name, phone, or email" aria-label="Search suppliers">
+          </div>
+          <div class="suppliers-table-wrap">
+            <table class="data-table suppliers-table">
+              <thead>
+                <tr>
+                  <th>
+                    Supplier
+                  </th>
+                  <th>
+                    Contact
+                  </th>
+                  <th>
+                    Address
+                  </th>
+                  <th>
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="suppliersTableBody">
+              </tbody>
+            </table>
+          </div>
+          <div id="suppliersEmptyState" class="suppliers-empty-state" hidden>
+          </div>
+        </section>
+        <section id="supplierProfile" class="form-card suppliers-profile" hidden>
+          <div class="suppliers-profile-header">
+            <div>
+              <h2 id="supplierProfileName">
+                Supplier Profile
+              </h2>
+              <p id="supplierProfileContact">
+              </p>
+            </div>
+            <button type="button" class="erp-button erp-button--secondary" data-action="suppliers-close-profile">
+              Close
+            </button>
+          </div>
+          <p id="supplierProfileAddress">
+          </p>
+          <p id="supplierProfileNotes">
+          </p>
+          <h3>
+            Purchase History
+          </h3>
+          <div class="suppliers-table-wrap">
+            <table class="data-table suppliers-table">
+              <thead>
+                <tr>
+                  <th>
+                    Order
+                  </th>
+                  <th>
+                    Product
+                  </th>
+                  <th>
+                    Quantity
+                  </th>
+                  <th>
+                    Total
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="supplierPurchaseHistory">
+              </tbody>
+            </table>
+          </div>
+          <div id="supplierPurchaseEmpty" class="suppliers-empty-state" hidden>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="js/suppliers.js">
+    </script>
+    <script type="module" src="js/auth.js">
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+@media (max-width: 768px) {
+  .erp-app-shell {
+    flex-direction: column;
+  }
+
+  .erp-sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .erp-brand {
+    margin-bottom: 16px;
+  }
+
+  .erp-sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 6px;
+  }
+
+  .erp-sidebar .erp-nav-link {
+    margin-bottom: 0;
+    padding: 11px;
+    text-align: center;
+  }
+
+  .erp-main {
+    padding: 20px;
+  }
+
+  .erp-topbar {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .inventory-list-header {
+    flex-direction: column;
+  }
+
+  .customers-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .suppliers-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .customers-list-header {
+    flex-direction: column;
+  }
+
+  .suppliers-list-header {
+    flex-direction: column;
+  }
+
+  .billing-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .billing-history-header {
+    flex-direction: column;
+  }
+
+  .ledger-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .ledger-list-header {
+    flex-direction: column;
+  }
+
+  .customers-list-header input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .suppliers-list-header input {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .erp-topbar {
+    flex-direction: column;
+  }
+
+  .dashboard-chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .customers-stat-grid,
+  .customers-profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .suppliers-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

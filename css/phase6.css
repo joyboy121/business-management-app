@@ -1,0 +1,261 @@
+/* Phase 6 and 7 page layouts */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.phase-grid > div {
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.phase-grid h3 {
+  margin-bottom: 8px;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.phase-grid strong {
+  color: #0f172a;
+  font-size: 1.35rem;
+}
+
+.phase-grid input,
+.phase-grid select,
+.phase-grid textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.phase-table {
+  overflow-x: auto;
+  margin-top: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.phase-table table {
+  min-width: 650px;
+  background: #fff;
+}
+
+.phase-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.phase-table th {
+  color: #475569;
+  background: #f8fafc;
+  font-size: 0.85rem;
+}
+
+.phase-page-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.phase-page-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.phase-page-form input,
+.phase-page-form select,
+.phase-page-form textarea,
+.phase-search-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.phase-page-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.phase-page-form input:focus,
+.phase-page-form select:focus,
+.phase-page-form textarea:focus,
+.phase-search-input:focus,
+.phase-grid input:focus,
+.phase-grid select:focus,
+.phase-grid textarea:focus {
+  outline: 3px solid rgb(37 99 235 / 18%);
+  border-color: #2563eb;
+}
+
+.phase-page-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-width: 150px;
+}
+
+.phase-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.phase-toolbar label {
+  display: grid;
+  gap: 6px;
+  color: #475569;
+  font-size: 0.85rem;
+}
+
+.phase-toolbar input,
+.phase-toolbar select {
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+@media (max-width: 720px) {
+  .phase-page-form {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-page-form button {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .phase-toolbar {
+    align-items: stretch;
+  }
+
+  .phase-toolbar label,
+  .phase-toolbar button {
+    width: 100%;
+  }
+}
+
+
+.phase-status {
+  margin: 12px 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.phase-empty {
+  margin-top: 14px;
+  padding: 22px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  color: #64748b;
+  text-align: center;
+}
+
+.warehouse-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 12px 0;
+  color: #475569;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.warehouse-field input,
+.warehouse-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.warehouse-field input:focus,
+.warehouse-field select:focus {
+  outline: 3px solid rgb(37 99 235 / 18%);
+  border-color: #2563eb;
+}
+
+.phase-table a {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.phase-table a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.phase-toolbar .erp-button {
+  min-height: 42px;
+}
+
+.erp-button:focus-visible,
+.erp-nav-link:focus-visible,
+.phase-table a:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 45%);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .phase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-grid > .form-card {
+    min-width: 0;
+  }
+
+  .phase-toolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .phase-toolbar .erp-button {
+    width: 100%;
+  }
+}
+
+.phase-status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.phase-status-pill--received {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.phase-status-pill--cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}

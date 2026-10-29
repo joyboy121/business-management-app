@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Settings | Bishal Enterprises
+    </title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/phase6.css">
+  </head>
+  <body>
+    <div class="erp-app-shell">
+      <aside class="erp-sidebar">
+        <h2 class="erp-brand">
+          Bishal Enterprises
+        </h2>
+        <nav>
+          <a href="dashboard.html" class="erp-nav-link">Dashboard</a>
+          <a href="inventory.html" class="erp-nav-link">Inventory</a>
+          <a href="customers.html" class="erp-nav-link">Customers</a>
+          <a href="suppliers.html" class="erp-nav-link">Suppliers</a>
+          <a href="purchasing.html" class="erp-nav-link">Purchasing</a>
+          <a href="billing.html" class="erp-nav-link">Billing</a>
+          <a href="ledger.html" class="erp-nav-link">Ledger</a>
+          <a href="warehouse.html" class="erp-nav-link">Warehouse</a>
+          <a href="reports.html" class="erp-nav-link">Reports</a>
+          <a href="settings.html" class="erp-nav-link is-active">Settings</a>
+          <a href="search.html" class="erp-nav-link">Global Search</a>
+        </nav>
+      </aside>
+      <main class="erp-main">
+        <header class="erp-topbar">
+          <div>
+            <h1>
+              Business Settings
+            </h1>
+            <p>
+              Business identity, currency, tax, and invoice details.
+            </p>
+          </div>
+        </header>
+        <button onclick="logout()" class="erp-button erp-button--danger erp-logout-button" data-auth-action="logout">
+          Logout
+        </button>
+        <form id="settingsForm" class="form-card phase-page-form">
+          <label>
+            Business name
+            <input name="businessName" required>
+          </label>
+          <label>
+            Phone
+            <input name="phone">
+          </label>
+          <label>
+            Address
+            <textarea name="address">
+            </textarea>
+          </label>
+          <label>
+            Currency symbol
+            <input name="currency" value="Rs" required>
+          </label>
+          <label>
+            Tax rate (%)
+            <input name="taxRate" type="number" min="0" step="0.01" value="0">
+          </label>
+          <label>
+            Invoice prefix
+            <input name="invoicePrefix" value="INV">
+          </label>
+          <button type="submit" class="erp-button erp-button--primary">
+            Save settings
+          </button>
+        </form>
+      </main>
+    </div>
+    <script type="module" src="js/settings.js">
+    </script>
+    <script type="module" src="js/auth.js">
+    </script>
+  </body>
+</html>
